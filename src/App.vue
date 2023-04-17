@@ -30,12 +30,12 @@ export default {
     }
   },
   methods: {
-    /*getCards() {
+      getCards() {
       const url = store.baseUrl;
       axios.get(url).then((res) => {
         console.log(this.res)
       })
-    }*/
+    }
   },
 }
 
