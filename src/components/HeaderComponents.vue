@@ -15,11 +15,7 @@
 
 export default {
     name: 'HeaderComponents',
-    setup () {
-        
-
-        return {}
-    }
+   
 }
 </script>
 

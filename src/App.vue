@@ -31,7 +31,7 @@ export default {
   },
   methods: {
       getCards() {
-      const url = cards.baseUrl;
+      const url = cards.baseUrl + cards.endPoint;
       axios.get(url).then((res) => {
         cards.cardsList = res.data.data;
         console.log(cards.cardsList)
