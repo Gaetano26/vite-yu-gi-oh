@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { store } from './data/store';
+import { cards } from './data/store';
 import axios from 'axios';
 import HeaderComponents from './components/HeaderComponents.vue';
 import SelectComponent from './components/SelectComponent.vue';
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
       getCards() {
-      const url = store.baseUrl;
+      const url = cards.baseUrl;
       axios.get(url).then((res) => {
         console.log(this.res)
       })
