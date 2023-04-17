@@ -1,15 +1,17 @@
 :<template>
-    <div class="row">
-        <div class="col-12">
+
+        <div class="col  text-center">
+            <img :src="card.card_images[2]" :alt="card.name">
+            <h4>{{ card.name }}</h4>
+            <p>{{ card.archetype }}</p>
 
         </div>
-    </div>
 </template>
 
 <script>
     export default {
-        name: 'CardsComponent'
-        
+        name: 'CardsComponent',
+        props: ['card']
     }
 </script>
 

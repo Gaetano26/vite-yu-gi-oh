@@ -26,17 +26,20 @@ export default {
     
 
     return {
-      store
+      cards
     }
   },
   methods: {
       getCards() {
       const url = cards.baseUrl;
       axios.get(url).then((res) => {
-        console.log(this.res)
+        cards.cardsList = res.data;
       })
     }
   },
+  mounted(){
+    this.getCards();
+  }
 }
 
 </script>
