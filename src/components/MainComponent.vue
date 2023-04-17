@@ -6,7 +6,7 @@
           </div>
         </div>
         <div class="row row-cols-lg-5">
-          <CardsComponent v-for="(card, index) in cards.cardsList" :key="index"/>
+          <CardsComponent v-for="(card, index) in cards.cardsList" :key="index" :card="card"/>
         </div>
 
     </div>

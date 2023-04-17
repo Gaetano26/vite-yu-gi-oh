@@ -33,11 +33,13 @@ export default {
       getCards() {
       const url = cards.baseUrl;
       axios.get(url).then((res) => {
-        cards.cardsList = res.data;
+        cards.cardsList = res.data.data;
+        console.log(cards.cardsList)
       })
     }
   },
   mounted(){
+    cards.endPoint = 'v7/cardinfo.php?num=50&offset=0';
     this.getCards();
   }
 }
