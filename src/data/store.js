@@ -2,7 +2,7 @@ import { reactive } from 'vue';
 
 export const cards = reactive({
     cardsList: [],
-    baseUrl: 'https://db.ygoprodeck.com/api/V7/cardinfo.php',
+    baseUrl: 'https://db.ygoprodeck.com/api/',
     endPoint: '',
     search: {
         archetype: '',

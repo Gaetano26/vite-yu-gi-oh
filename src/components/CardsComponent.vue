@@ -1,4 +1,4 @@
-:<template>
+<template>
 
         <div class="col p-0">
             <div class="text-center cont-img">

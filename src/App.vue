@@ -31,8 +31,8 @@ export default {
   },
   methods: {
     getCards() {
-      const url = cards.baseUrl + cards.endPoint;
-      let options = {}
+      let url = cards.baseUrl + cards.endPoint;
+      /*let options = {}
       let params = {}
       for (let key in cards.search) {
         if (cards.search[key]) {
@@ -42,15 +42,22 @@ export default {
    
       if (Object.keys(params).length > 0) {
         options.params = params;
+      }*/
+      if (cards.search != ''){
+        let url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=' + cards.search;
+        axios.get(url).then((res)=> {
+          cards.cardsList = res.data.data;
+        })
+        
       }
-      axios.get(url, options).then((res) => {
+      axios.get(url).then((res) => {
         cards.cardsList = res.data.data;
         
       })
     }
   },
   mounted(){
-    cards.endPoint = '?num=50&offset=0';
+    cards.endPoint = 'v7/cardinfo.php?num=50&offset=0';
     this.getCards();
   }
 }
