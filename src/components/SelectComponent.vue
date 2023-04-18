@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <select class="form-select ms-1 my-3">
-                    <option selected>all</option>
-                    <option value="alien">alien</option>
+                <select class="form-select ms-1 my-3" v-model:="cards.search.archetype" @change="$emit('searchChange')">
+                    <option selected value="">all</option>
+                    <option :value="status" v-for="(status,index) in archetypeOptions" :key="index">{{ status }}</option>
                 </select>
             </div>
         </div>
@@ -13,9 +13,27 @@
 </template>
 
 <script>
-
+import { cards } from '../data/store';
+import axios from 'axios';
     export default {
-       name: 'SelectComponent'
+       name: 'SelectComponent',
+       data(){
+        return {
+            cards,
+            archetypeOptions: [
+
+            ]
+        }
+       },
+       methods: { 
+        
+       },
+       mounted() {
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then((res) => {
+               this.archetypeOptions = res.data;
+               console.log(this.archetypeOptions);
+            })
+       }
         
     }
 </script>

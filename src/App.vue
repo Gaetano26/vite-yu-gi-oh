@@ -3,7 +3,7 @@
     <HeaderComponents />
   </header>
   <main>
-     <SelectComponent />
+     <SelectComponent @searchChange="getCards"/>
      <MainComponent />
   </main>
 </template>
@@ -32,14 +32,25 @@ export default {
   methods: {
       getCards() {
       const url = cards.baseUrl + cards.endPoint;
-      axios.get(url).then((res) => {
+      let options = {}
+      let params = {}
+      for (let key in cards.search) {
+        if (cards.search[key]) {
+          params[key] = cards.search[key]
+        }
+      }
+   
+      if (Object.keys(params).length > 0) {
+        options.params = params;
+      }
+      axios.get(url, options).then((res) => {
         cards.cardsList = res.data.data;
-        console.log(cards.cardsList)
+        
       })
     }
   },
   mounted(){
-    cards.endPoint = 'v7/cardinfo.php?num=50&offset=0';
+    cards.endPoint = '?num=50&offset=0';
     this.getCards();
   }
 }
