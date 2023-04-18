@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <select class="form-select ms-1 my-3" v-model="cards.search.archetype" @change="$emit('search-change')">
+                <select class="form-select ms-1 my-3" v-model.trim="cards.search.archetype" @change="$emit('search-change')">
                     <option selected value="">all</option>
                     <option :value="status.archetype_name" v-for="(status,index) in archetypeOptions" :key="index">{{ status.archetype_name }}</option>
                 </select>

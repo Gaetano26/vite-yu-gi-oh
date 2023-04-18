@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <div class="row">
-          <div class="col-12 ">
-              <div class="bg-dark text-white mt-5 ps-3 py-3">Found 39 Cards</div>
+          <div class="col-12  text-center">
+              <div class="bg-dark fw-bold text-white mt-5 ps-3 py-3">Cards</div>
           </div>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 gap-4 justify-content-center  ">
