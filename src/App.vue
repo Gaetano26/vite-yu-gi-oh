@@ -43,16 +43,13 @@ export default {
       if (Object.keys(params).length > 0) {
         options.params = params;
       }*/
-      if (cards.search != ''){
-        let url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=' + cards.search;
-        axios.get(url).then((res)=> {
-          cards.cardsList = res.data.data;
-        })
-        
+      if (cards.search.archetype != ''){
+        let url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=' + cards.search.archetype;
+         console.log(cards.search)
       }
       axios.get(url).then((res) => {
         cards.cardsList = res.data.data;
-        
+         
       })
     }
   },
