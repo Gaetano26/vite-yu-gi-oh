@@ -30,7 +30,7 @@ export default {
     }
   },
   methods: {
-      getCards() {
+    getCards() {
       const url = cards.baseUrl + cards.endPoint;
       let options = {}
       let params = {}
