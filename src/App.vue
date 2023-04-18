@@ -3,7 +3,7 @@
     <HeaderComponents />
   </header>
   <main>
-     <SelectComponent @searchChange="getCards"/>
+     <SelectComponent @search-change="getCards"/>
      <MainComponent />
   </main>
 </template>
@@ -32,29 +32,30 @@ export default {
   methods: {
     getCards() {
       let url = cards.baseUrl + cards.endPoint;
-      /*let options = {}
+      /*if (cards.search.archetype != ''){
+        let url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=' + cards.search.archetype;
+         console.log(cards.search)
+      }*/
       let params = {}
       for (let key in cards.search) {
         if (cards.search[key]) {
           params[key] = cards.search[key]
         }
       }
-   
-      if (Object.keys(params).length > 0) {
-        options.params = params;
-      }*/
       if (cards.search.archetype != ''){
-        let url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=' + cards.search.archetype;
-         console.log(cards.search)
+        url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?'
+         console.log(url)
       }
-      axios.get(url).then((res) => {
+      axios.get(url, {params}).then((res) => {
         cards.cardsList = res.data.data;
          
-      })
-    }
+      });
+
+    },
+    
   },
   mounted(){
-    cards.endPoint = 'v7/cardinfo.php?num=50&offset=0';
+    cards.endPoint = '?num=50&offset=0';
     this.getCards();
   }
 }

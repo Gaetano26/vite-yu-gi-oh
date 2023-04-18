@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <select class="form-select ms-1 my-3" v-model="cards.search.archetype" @change="$emit('searchChange')">
+                <select class="form-select ms-1 my-3" v-model="cards.search.archetype" @change="$emit('search-change')">
                     <option selected value="">all</option>
-                    <option :value="status" v-for="(status,index) in archetypeOptions" :key="index">{{ status.archetype_name }}</option>
+                    <option :value="status.archetype_name" v-for="(status,index) in archetypeOptions" :key="index">{{ status.archetype_name }}</option>
                 </select>
             </div>
         </div>
@@ -29,6 +29,7 @@ import axios from 'axios';
         
        },
        mounted() {
+        
         axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then((res) => {
                this.archetypeOptions = res.data;
                console.log(this.archetypeOptions);
